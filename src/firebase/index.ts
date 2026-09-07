@@ -4,7 +4,37 @@
 import { firebaseConfig } from '@/firebase/config';
 import { initializeApp, getApps, getApp, FirebaseApp } from 'firebase/app';
 import { getAuth, connectAuthEmulator } from 'firebase/auth';
-import { getFirestore, connectFirestoreEmulator, enableMultiTabIndexedDbPersistence } from 'firebase/firestore'
+import { getFirestore, connectFirestoreEmulator } from 'firebase/firestore';
+
+// Clean up any corrupted IndexedDB databases from prior persistence sessions
+if (typeof window !== 'undefined' && typeof window.indexedDB !== 'undefined') {
+  try {
+    if (window.indexedDB.databases) {
+      window.indexedDB.databases().then((dbs) => {
+        dbs.forEach((dbInfo) => {
+          if (dbInfo.name && (dbInfo.name.includes('firestore') || dbInfo.name.includes('[DEFAULT]'))) {
+            try {
+              window.indexedDB.deleteDatabase(dbInfo.name);
+            } catch {
+              // Ignore
+            }
+          }
+        });
+      }).catch(() => {});
+    }
+    // Also explicitly target standard Firestore database names to guarantee cleanup
+    if (firebaseConfig?.projectId) {
+      try {
+        window.indexedDB.deleteDatabase(`firestore/[DEFAULT]/${firebaseConfig.projectId}/[DEFAULT]`);
+        window.indexedDB.deleteDatabase(`[DEFAULT]`);
+      } catch {
+        // Ignore
+      }
+    }
+  } catch {
+    // Ignore
+  }
+}
 
 // IMPORTANT: DO NOT MODIFY THIS FUNCTION
 export function initializeFirebase() {
@@ -35,21 +65,6 @@ export function initializeFirebase() {
 
 export function getSdks(firebaseApp: FirebaseApp) {
   const firestore = getFirestore(firebaseApp);
-  enableMultiTabIndexedDbPersistence(firestore)
-    .catch((err) => {
-        if (
-            err.code === 'failed-precondition' ||
-            (err.message && err.message.includes('indexedDB'))
-        ) {
-            // This is an expected error when multiple tabs are open, especially with fast refresh.
-            // Firebase handles this gracefully, and we can safely ignore it to keep the console clean.
-        } else if (err.code === 'unimplemented') {
-            // The browser doesn't support persistence.
-            console.warn('Firestore persistence is not supported in this browser.');
-        } else {
-            console.error("Firestore persistence error:", err);
-        }
-    });
 
   return {
     firebaseApp,

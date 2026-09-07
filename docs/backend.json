@@ -1,0 +1,1863 @@
+{
+  "entities": {
+    "UsernameHistory": {
+      "title": "UsernameHistory",
+      "type": "object",
+      "description": "Logs changes to a user's username.",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "changedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "userId",
+        "username",
+        "changedAt"
+      ]
+    },
+    "RateLimit": {
+      "title": "RateLimit",
+      "type": "object",
+      "description": "Tracks API usage for rate limiting staff actions.",
+      "properties": {
+        "count": {
+          "type": "number"
+        },
+        "windowStart": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "count",
+        "windowStart"
+      ]
+    },
+    "AuditLog": {
+      "title": "AuditLog",
+      "type": "object",
+      "description": "Logs moderation actions for auditing purposes.",
+      "properties": {
+        "staffId": {
+          "type": "string"
+        },
+        "staffName": {
+          "type": "string"
+        },
+        "targetUserId": {
+          "type": "string"
+        },
+        "action": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "ipUsed": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "staffId",
+        "targetUserId",
+        "action",
+        "createdAt"
+      ]
+    },
+    "Report": {
+      "title": "Report",
+      "type": "object",
+      "description": "Represents a user-generated report against another user.",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "reporterId": {
+          "type": "string",
+          "description": "The ID of the user who filed the report."
+        },
+        "reportedId": {
+          "type": "string",
+          "description": "The ID of the user who was reported."
+        },
+        "reason": {
+          "type": "string",
+          "description": "The reason for the report."
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "resolved"
+          ]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "resolvedBy": {
+          "type": "string",
+          "description": "The ID of the staff member who resolved the report."
+        },
+        "resolvedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "reporterId",
+        "reportedId",
+        "reason",
+        "status",
+        "createdAt"
+      ]
+    },
+    "PlaylistItem": {
+      "title": "PlaylistItem",
+      "type": "object",
+      "description": "Represents a song in a Square's playlist.",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "youtubeId": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "thumbnail": {
+          "type": "string",
+          "format": "uri"
+        },
+        "addedBy": {
+          "type": "string"
+        },
+        "addedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "youtubeId",
+        "title",
+        "addedBy",
+        "addedAt"
+      ]
+    },
+    "UserProfile": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "UserProfile",
+      "type": "object",
+      "description": "Represents a user profile in the Azurewave application.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the UserProfile entity."
+        },
+        "username": {
+          "type": "string",
+          "description": "The user's chosen username."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The user's display name, which can be different from the username."
+        },
+        "avatarUrl": {
+          "type": "string",
+          "description": "URL of the user's avatar image.",
+          "format": "uri"
+        },
+        "email": {
+          "type": "string",
+          "description": "The user's email address.",
+          "format": "email"
+        },
+        "role": {
+          "type": "string",
+          "description": "The role of the user, which determines their permissions and badge.",
+          "enum": [
+            "Owner",
+            "Co-Owner",
+            "Super Admin",
+            "Admin",
+            "Moderator",
+            "Room Owner",
+            "Room Admin",
+            "Room Moderator",
+            "Super VIP",
+            "VIP",
+            "User",
+            "Guest",
+            "Bot"
+          ]
+        },
+        "gender": {
+          "type": "string",
+          "description": "The user's gender, used for determining the default avatar.",
+          "enum": [
+            "male",
+            "female"
+          ]
+        },
+        "country": {
+          "type": "string",
+          "description": "The user's country code, selected during registration."
+        },
+        "xp": {
+          "type": "number",
+          "description": "The user's current experience points."
+        },
+        "level": {
+          "type": "number",
+          "description": "The user's current level."
+        },
+        "mutedUntil": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp until which the user is muted. If present, the user cannot send messages."
+        },
+        "gaggedUntil": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp until which the user is gagged. If present, their messages are scrambled."
+        },
+        "temporaryNickname": {
+          "type": "string",
+          "description": "A temporary nickname for the user."
+        },
+        "tempNickUntil": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp until the temporary nickname expires."
+        },
+        "anonymousUntil": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp until the user is in anonymous mode."
+        },
+        "averageRating": {
+          "type": "number",
+          "description": "The user's average rating from 1 to 5."
+        },
+        "ratingCount": {
+          "type": "number",
+          "description": "The total number of ratings the user has received."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of when the user account was created."
+        },
+        "lastSeen": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of when the user was last active."
+        },
+        "messageCount": {
+          "type": "number",
+          "description": "Total number of messages sent by the user."
+        },
+        "badges": {
+          "type": "array",
+          "description": "A list of badges the user has earned.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "The unique identifier for the badge (e.g., 'level-10')."
+              },
+              "timestamp": {
+                "type": "string",
+                "format": "date-time",
+                "description": "When the badge was earned."
+              }
+            },
+            "required": [
+              "id",
+              "timestamp"
+            ]
+          }
+        },
+        "warnings": {
+          "type": "array",
+          "description": "A list of warnings issued to the user.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "moderatorId": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            "required": [
+              "moderatorId",
+              "reason",
+              "createdAt"
+            ]
+          }
+        },
+        "gold": {
+          "type": "number",
+          "description": "The user's gold currency balance."
+        },
+        "rubies": {
+          "type": "number",
+          "description": "The user's ruby currency balance."
+        },
+        "about": {
+          "type": "string",
+          "description": "A short biography or about me text for the user."
+        },
+        "isGhost": {
+          "type": "boolean",
+          "description": "If true, the user is in ghost mode and will not appear in user lists."
+        },
+        "squareRoles": {
+          "type": "object",
+          "description": "A map of Square IDs to user roles within those Squares. The key is the squareId and the value is the role.",
+          "additionalProperties": {
+            "type": "string",
+            "enum": [
+              "Room Owner",
+              "Room Admin",
+              "Room Moderator"
+            ]
+          }
+        },
+        "bannedFromSquares": {
+          "type": "object",
+          "description": "A map of Square IDs to ban details, including expiry and reason.",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "until": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "reason": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "until"
+            ]
+          }
+        },
+        "gifts": {
+          "type": "object",
+          "description": "Statistics about gifts sent and received by the user.",
+          "properties": {
+            "sent": {
+              "type": "object",
+              "properties": {
+                "total": {
+                  "type": "number"
+                },
+                "unique": {
+                  "type": "number"
+                },
+                "inventory": {
+                  "type": "object",
+                  "description": "A map of gift IDs to the count of that gift sent.",
+                  "additionalProperties": {
+                    "type": "number"
+                  }
+                }
+              }
+            },
+            "received": {
+              "type": "object",
+              "properties": {
+                "total": {
+                  "type": "number"
+                },
+                "unique": {
+                  "type": "number"
+                },
+                "inventory": {
+                  "type": "object",
+                  "description": "A map of gift IDs to the count of that gift received.",
+                  "additionalProperties": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "pinnedSquares": {
+          "type": "array",
+          "description": "An array of Square IDs that the user has pinned.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "isBot": {
+          "type": "boolean",
+          "description": "Indicates if the user is a bot account."
+        }
+      },
+      "required": [
+        "id",
+        "username",
+        "displayName"
+      ]
+    },
+    "UserPrivate": {
+      "title": "UserPrivate",
+      "type": "object",
+      "description": "Stores sensitive user data, only accessible by backend functions.",
+      "properties": {
+        "rawIp": {
+          "type": "string",
+          "description": "The user's last known raw IP address. For owner lookup only."
+        },
+        "ipHash": {
+          "type": "string",
+          "description": "A secure, one-way hash of the user's IP address for correlation."
+        }
+      }
+    },
+    "Square": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Square",
+      "type": "object",
+      "description": "Represents a Square in the application.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Square entity."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the Square."
+        },
+        "description": {
+          "type": "string",
+          "description": "A description of the Square's topic or purpose."
+        },
+        "creatorId": {
+          "type": "string",
+          "description": "Reference to UserProfile. (Relationship: UserProfile 1:N Square). The ID of the user who created the Square."
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of the Square.",
+          "enum": [
+            "public",
+            "private"
+          ]
+        },
+        "password": {
+          "type": "string",
+          "description": "The password for a private Square."
+        },
+        "avatarUrl": {
+          "type": "string",
+          "description": "URL of the Square's avatar image.",
+          "format": "uri"
+        },
+        "djId": {
+          "type": "string",
+          "description": "The ID of the user who is currently the DJ in this Square."
+        },
+        "nowPlaying": {
+          "type": "object",
+          "description": "Details about the currently playing song from YouTube.",
+          "properties": {
+            "youtubeId": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "isPlaying": {
+              "type": "boolean"
+            },
+            "startedAt": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        "djPanelBackground": {
+          "type": "string",
+          "description": "URL for the DJ panel's background image.",
+          "format": "uri"
+        },
+        "isVerified": {
+          "type": "boolean",
+          "description": "Indicates if the Square is verified by an admin."
+        },
+        "isVipOnly": {
+          "type": "boolean",
+          "description": "Indicates if the Square is for VIP users only."
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "creatorId",
+        "type"
+      ]
+    },
+    "Message": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Message",
+      "type": "object",
+      "description": "Represents a message sent in a Square.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Message entity."
+        },
+        "squareId": {
+          "type": "string",
+          "description": "Reference to Square. (Relationship: Square 1:N Message). The ID of the Square where the message was sent."
+        },
+        "senderId": {
+          "type": "string",
+          "description": "Reference to UserProfile. (Relationship: UserProfile 1:N Message). The ID of the user who sent the message."
+        },
+        "content": {
+          "type": "string",
+          "description": "The content of the message."
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "The timestamp of when the message was sent.",
+          "format": "date-time"
+        },
+        "isSpotlighted": {
+          "type": "boolean",
+          "description": "If true, the message is highlighted in the chat."
+        }
+      },
+      "required": [
+        "id",
+        "squareId",
+        "senderId",
+        "content",
+        "timestamp"
+      ]
+    },
+    "UserSquare": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "UserSquare",
+      "type": "object",
+      "description": "Represents the relationship between users and Squares, indicating which users are in which Squares.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the UserSquare entity."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Reference to UserProfile. The ID of the user in the Square."
+        },
+        "squareId": {
+          "type": "string",
+          "description": "Reference to Square. The ID of the Square the user is in."
+        },
+        "joinTime": {
+          "type": "string",
+          "description": "The timestamp of when the user joined the Square.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "userId",
+        "squareId",
+        "joinTime"
+      ]
+    },
+    "FriendRequest": {
+      "title": "FriendRequest",
+      "type": "object",
+      "description": "Represents a friend request sent from one user to another.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the FriendRequest."
+        },
+        "senderId": {
+          "type": "string",
+          "description": "The ID of the user sending the request."
+        },
+        "receiverId": {
+          "type": "string",
+          "description": "The ID of the user receiving the request."
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "accepted",
+            "declined"
+          ]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "senderId",
+        "receiverId",
+        "status",
+        "createdAt"
+      ]
+    },
+    "ModerationAction": {
+      "title": "ModerationAction",
+      "type": "object",
+      "description": "Represents a moderation action taken by a staff member against a user.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the ModerationAction."
+        },
+        "moderatorId": {
+          "type": "string",
+          "description": "The ID of the staff member who performed the action."
+        },
+        "userId": {
+          "type": "string",
+          "description": "The ID of the user who is the subject of the action."
+        },
+        "actionType": {
+          "type": "string",
+          "enum": [
+            "warn",
+            "kick",
+            "mute",
+            "ban",
+            "gag",
+            "ungag",
+            "set_temp_nick",
+            "remove_temp_nick",
+            "go_anonymous",
+            "remove_anonymous",
+            "summon"
+          ],
+          "description": "The type of moderation action."
+        },
+        "reason": {
+          "type": "string",
+          "description": "The reason for the moderation action."
+        },
+        "duration": {
+          "type": "number",
+          "description": "Duration of the action in minutes (for mutes/bans)."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "moderatorId",
+        "userId",
+        "actionType",
+        "createdAt"
+      ]
+    },
+    "Notification": {
+      "title": "Notification",
+      "type": "object",
+      "description": "Represents a notification sent to a user.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Notification."
+        },
+        "userId": {
+          "type": "string",
+          "description": "The ID of the user receiving the notification."
+        },
+        "text": {
+          "type": "string",
+          "description": "The content of the notification."
+        },
+        "read": {
+          "type": "boolean",
+          "description": "Whether the user has read the notification."
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of notification.",
+          "enum": [
+            "moderation",
+            "mention",
+            "default",
+            "summon",
+            "reported"
+          ]
+        },
+        "action": {
+          "description": "The moderation action associated with this notification, if applicable.",
+          "$ref": "#/backend/entities/ModerationAction"
+        },
+        "summonDetails": {
+          "type": "object",
+          "description": "Details for a summon notification.",
+          "properties": {
+            "squareId": {
+              "type": "string"
+            },
+            "squareName": {
+              "type": "string"
+            },
+            "summonerName": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "required": [
+        "userId",
+        "text",
+        "timestamp"
+      ]
+    },
+    "UserRating": {
+      "title": "UserRating",
+      "type": "object",
+      "description": "Represents a rating given by one user to another.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the rating."
+        },
+        "raterId": {
+          "type": "string",
+          "description": "The ID of the user who gave the rating."
+        },
+        "ratedUserId": {
+          "type": "string",
+          "description": "The ID of the user who received the rating."
+        },
+        "rating": {
+          "type": "number",
+          "description": "The star rating from 1 to 5."
+        },
+        "comment": {
+          "type": "string",
+          "description": "The comment left with the rating."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "raterId",
+        "ratedUserId",
+        "rating",
+        "createdAt"
+      ]
+    },
+    "PrivateMessage": {
+      "title": "PrivateMessage",
+      "type": "object",
+      "description": "Represents a private message sent between two users.",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "senderId": {
+          "type": "string"
+        },
+        "receiverId": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "read": {
+          "type": "boolean"
+        },
+        "participants": {
+          "type": "array",
+          "description": "An array containing the UIDs of both the sender and receiver, sorted alphabetically.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "senderId",
+        "receiverId",
+        "content",
+        "timestamp",
+        "participants"
+      ]
+    },
+    "SongRequest": {
+      "title": "SongRequest",
+      "type": "object",
+      "description": "Represents a song request made by a user in a Square.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the SongRequest."
+        },
+        "squareId": {
+          "type": "string",
+          "description": "The ID of the Square where the request was made."
+        },
+        "requesterId": {
+          "type": "string",
+          "description": "The ID of the user who made the request."
+        },
+        "requesterName": {
+          "type": "string",
+          "description": "The display name of the user who made the request."
+        },
+        "songName": {
+          "type": "string",
+          "description": "The name of the song being requested."
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "played",
+            "skipped"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "squareId",
+        "requesterId",
+        "requesterName",
+        "songName",
+        "timestamp",
+        "status"
+      ]
+    },
+    "Gift": {
+      "title": "Gift",
+      "type": "object",
+      "description": "Represents a virtual gift that can be sent between users.",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number"
+        },
+        "currency": {
+          "type": "string",
+          "enum": [
+            "gold",
+            "rubies"
+          ]
+        },
+        "imageUrl": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "price",
+        "currency",
+        "imageUrl"
+      ]
+    },
+    "StaffPermissions": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "StaffPermissions",
+      "type": "object",
+      "description": "Configuration for staff role permissions.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Should always be 'config'"
+        },
+        "roles": {
+          "type": "object",
+          "description": "A map of role names to an array of permission strings.",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "createSquare",
+                "featureSquare",
+                "verifySquare",
+                "setGlobalRole",
+                "loginAsUser",
+                "deleteAnySquare",
+                "clearAnyChat",
+                "manageBotsInAnySquare",
+                "viewAnalytics",
+                "managePermissions",
+                "sendGlobalAnnouncements",
+                "manageUsers",
+                "manageTheme",
+                "manageCustomCss",
+                "warnUser",
+                "kickUser",
+                "muteUser",
+                "banUser",
+                "gagUser",
+                "setTempNick",
+                "makeAnonymous",
+                "summonUser",
+                "undoModeration",
+                "manageRegistration",
+                "managePosts",
+                "pinPosts",
+                "viewReports",
+                "viewWhois"
+              ]
+            }
+          }
+        }
+      },
+      "required": [
+        "id",
+        "roles"
+      ]
+    },
+    "FeaturePermissions": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "FeaturePermissions",
+      "type": "object",
+      "description": "Configuration for feature access based on user rank.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Should always be 'config'"
+        },
+        "usernameStyle": {
+          "type": "string",
+          "enum": [
+            "Owner",
+            "Super Admin",
+            "Admin",
+            "Moderator",
+            "Super VIP",
+            "VIP",
+            "User"
+          ]
+        },
+        "chatTextStyle": {
+          "type": "string",
+          "enum": [
+            "Owner",
+            "Super Admin",
+            "Admin",
+            "Moderator",
+            "Super VIP",
+            "VIP",
+            "User"
+          ]
+        },
+        "profileAvatar": {
+          "type": "string",
+          "enum": [
+            "Owner",
+            "Super Admin",
+            "Admin",
+            "Moderator",
+            "Super VIP",
+            "VIP",
+            "User"
+          ]
+        },
+        "profileBanner": {
+          "type": "string",
+          "enum": [
+            "Owner",
+            "Super Admin",
+            "Admin",
+            "Moderator",
+            "Super VIP",
+            "VIP",
+            "User"
+          ]
+        },
+        "chatBackground": {
+          "type": "string",
+          "enum": [
+            "Owner",
+            "Super Admin",
+            "Admin",
+            "Moderator",
+            "Super VIP",
+            "VIP",
+            "User"
+          ]
+        },
+        "sendGift": {
+          "type": "string",
+          "enum": [
+            "Owner",
+            "Super Admin",
+            "Admin",
+            "Moderator",
+            "Super VIP",
+            "VIP",
+            "User"
+          ]
+        },
+        "shareCurrency": {
+          "type": "string",
+          "enum": [
+            "Owner",
+            "Super Admin",
+            "Admin",
+            "Moderator",
+            "Super VIP",
+            "VIP",
+            "User"
+          ]
+        },
+        "useDjBooth": {
+          "type": "string",
+          "enum": [
+            "Owner",
+            "Super Admin",
+            "Admin",
+            "Moderator",
+            "Super VIP",
+            "VIP",
+            "User"
+          ]
+        },
+        "createPost": {
+          "type": "string",
+          "enum": [
+            "Owner",
+            "Super Admin",
+            "Admin",
+            "Moderator",
+            "Super VIP",
+            "VIP",
+            "User"
+          ]
+        },
+        "commentOnPost": {
+          "type": "string",
+          "enum": [
+            "Owner",
+            "Super Admin",
+            "Admin",
+            "Moderator",
+            "Super VIP",
+            "VIP",
+            "User"
+          ]
+        },
+        "reactToPost": {
+          "type": "string",
+          "enum": [
+            "Owner",
+            "Super Admin",
+            "Admin",
+            "Moderator",
+            "Super VIP",
+            "VIP",
+            "User"
+          ]
+        },
+        "privateMessaging": {
+          "type": "string",
+          "enum": [
+            "Owner",
+            "Super Admin",
+            "Admin",
+            "Moderator",
+            "Super VIP",
+            "VIP",
+            "User"
+          ]
+        },
+        "mentionUser": {
+          "type": "string",
+          "enum": [
+            "Owner",
+            "Super Admin",
+            "Admin",
+            "Moderator",
+            "Super VIP",
+            "VIP",
+            "User"
+          ]
+        },
+        "quoteMessage": {
+          "type": "string",
+          "enum": [
+            "Owner",
+            "Super Admin",
+            "Admin",
+            "Moderator",
+            "Super VIP",
+            "VIP",
+            "User"
+          ]
+        },
+        "useGhostMode": {
+          "type": "string",
+          "enum": [
+            "Owner",
+            "Super Admin",
+            "Admin",
+            "Moderator",
+            "Super VIP",
+            "VIP",
+            "User"
+          ]
+        }
+      },
+      "required": [
+        "id"
+      ]
+    },
+    "Announcement": {
+      "title": "Announcement",
+      "type": "object",
+      "description": "Represents a global announcement sent by an admin.",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "createdBy": {
+          "type": "string",
+          "description": "The display name of the admin who created the announcement."
+        },
+        "category": {
+          "type": "string",
+          "description": "The category of the announcement, which determines its icon.",
+          "enum": [
+            "important",
+            "normal"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "message",
+        "createdAt",
+        "createdBy"
+      ]
+    },
+    "ThemeSettings": {
+      "title": "ThemeSettings",
+      "type": "object",
+      "description": "Stores application-wide settings like the active theme.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the theme."
+        },
+        "isDark": {
+          "type": "boolean",
+          "description": "Whether the theme is dark or light."
+        },
+        "variables": {
+          "type": "object",
+          "description": "A map of CSS variables to their HSL string values.",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "defaultBackgroundUrl": {
+          "type": "string",
+          "description": "The default background URL for all chat rooms.",
+          "format": "uri"
+        },
+        "defaultDecorationUrl": {
+          "type": "string",
+          "description": "The default decoration URL for all chat rooms.",
+          "format": "uri"
+        },
+        "isMaintenanceMode": {
+          "type": "boolean",
+          "description": "If true, the entire application is in maintenance mode."
+        },
+        "defaultRole": {
+          "type": "string",
+          "description": "The default role assigned to new users upon registration.",
+          "default": "User"
+        },
+        "welcomeMessage": {
+          "type": "string",
+          "description": "The welcome message sent to new users. Use {username} as a placeholder."
+        },
+        "initialGold": {
+          "type": "number",
+          "description": "The amount of gold new users start with."
+        },
+        "initialRubies": {
+          "type": "number",
+          "description": "The amount of rubies new users start with."
+        },
+        "guestAccessEnabled": {
+          "type": "boolean",
+          "description": "If true, guest access is enabled."
+        },
+        "logRetentionDays": {
+          "type": "number",
+          "description": "The number of days to retain logs."
+        },
+        "chatImageEnabled": {
+          "type": "boolean",
+          "description": "If true, users can share images in chat."
+        },
+        "chatVideoEnabled": {
+          "type": "boolean",
+          "description": "If true, users can share videos in chat."
+        },
+        "chatAudioEnabled": {
+          "type": "boolean",
+          "description": "If true, users can send audio messages."
+        },
+        "chatFileEnabled": {
+          "type": "boolean",
+          "description": "If true, users can share files."
+        },
+        "gamesEnabled": {
+          "type": "boolean",
+          "description": "If true, games are enabled in the sidebar."
+        },
+        "forbiddenWords": {
+          "type": "string",
+          "description": "A comma-separated list of forbidden words."
+        },
+        "linkHandling": {
+          "type": "string",
+          "enum": [
+            "new_tab",
+            "same_tab",
+            "warning"
+          ],
+          "description": "How to handle links posted in chat."
+        },
+        "domainWhitelist": {
+          "type": "string",
+          "description": "Comma-separated list of domains that are allowed. If empty, all are allowed."
+        },
+        "antiSpamBotEnabled": {
+          "type": "boolean",
+          "description": "Enable anti-spam bot features."
+        },
+        "chatSpeedLimit": {
+          "type": "number",
+          "description": "The delay in seconds a user must wait between messages (slow mode)."
+        },
+        "maxMessageLength": {
+          "type": "number",
+          "description": "The maximum number of characters allowed in a single chat message."
+        },
+        "profanityFilterEnabled": {
+          "type": "boolean",
+          "description": "Enable automatic profanity filtering."
+        },
+        "nameChangeCooldown": {
+          "type": "number",
+          "description": "The cooldown in hours a user must wait before changing their name again."
+        },
+        "youtubeEmbedsEnabled": {
+          "type": "boolean",
+          "description": "If true, YouTube links will be embedded in chat."
+        },
+        "drawingCanvasEnabled": {
+          "type": "boolean",
+          "description": "If true, users can use the Paint/Drawing feature."
+        },
+        "richTextFormattingEnabled": {
+          "type": "boolean",
+          "description": "If true, users can use markdown for rich text formatting."
+        }
+      }
+    },
+    "ProfileNote": {
+      "title": "ProfileNote",
+      "type": "object",
+      "description": "Represents a note left on a user's profile by another user.",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "authorId": {
+          "type": "string",
+          "description": "The ID of the user who wrote the note."
+        },
+        "authorName": {
+          "type": "string",
+          "description": "The display name of the user who wrote the note."
+        },
+        "note": {
+          "type": "string",
+          "description": "The content of the note."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "authorId",
+        "authorName",
+        "note",
+        "createdAt"
+      ]
+    },
+    "Post": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Post",
+      "type": "object",
+      "description": "Represents a post on the user feed wall.",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "authorId": {
+          "type": "string",
+          "description": "The ID of the user who created the post."
+        },
+        "content": {
+          "type": "string",
+          "description": "The text content of the post."
+        },
+        "imageUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "Optional URL of an image attached to the post."
+        },
+        "likes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Array of user IDs who liked the post."
+        },
+        "loves": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Array of user IDs who loved the post."
+        },
+        "funnies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Array of user IDs who found the post funny."
+        },
+        "dislikes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Array of user IDs who disliked the post."
+        },
+        "likeCount": {
+          "type": "number",
+          "description": "Total number of likes."
+        },
+        "loveCount": {
+          "type": "number",
+          "description": "Total number of loves."
+        },
+        "funnyCount": {
+          "type": "number",
+          "description": "Total number of funnies."
+        },
+        "dislikeCount": {
+          "type": "number",
+          "description": "Total number of dislikes."
+        },
+        "commentCount": {
+          "type": "number",
+          "description": "Total number of comments."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of when the post was created."
+        },
+        "isPinned": {
+          "type": "boolean",
+          "description": "If true, the post is pinned to the top of the feed."
+        }
+      },
+      "required": [
+        "id",
+        "authorId",
+        "content",
+        "createdAt"
+      ]
+    },
+    "Comment": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Comment",
+      "type": "object",
+      "description": "Represents a comment on a post.",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "postId": {
+          "type": "string",
+          "description": "The ID of the post this comment belongs to."
+        },
+        "authorId": {
+          "type": "string",
+          "description": "The ID of the user who wrote the comment."
+        },
+        "content": {
+          "type": "string",
+          "description": "The text content of the comment."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of when the comment was created."
+        }
+      },
+      "required": [
+        "id",
+        "postId",
+        "authorId",
+        "content",
+        "createdAt"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/reports/{reportId}",
+        "definition": {
+          "entityName": "Report",
+          "schema": {
+            "$ref": "#/backend/entities/Report"
+          },
+          "description": "Stores user-generated reports for staff review."
+        }
+      },
+      {
+        "path": "/users/{userId}",
+        "definition": {
+          "entityName": "UserProfile",
+          "schema": {
+            "$ref": "#/backend/entities/UserProfile"
+          },
+          "description": "Stores user profile data. Path-based ownership ensures only the user can modify their profile.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/private/data",
+        "definition": {
+          "entityName": "UserPrivate",
+          "schema": {
+            "$ref": "#/backend/entities/UserPrivate"
+          },
+          "description": "Stores sensitive user data, accessible only by backend functions.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/notifications/{notificationId}",
+        "definition": {
+          "entityName": "Notification",
+          "schema": {
+            "$ref": "#/backend/entities/Notification"
+          },
+          "description": "Stores notifications for a specific user.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user."
+            },
+            {
+              "name": "notificationId",
+              "description": "The unique identifier of the notification."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/ratings/{ratingId}",
+        "definition": {
+          "entityName": "UserRating",
+          "schema": {
+            "$ref": "#/backend/entities/UserRating"
+          },
+          "description": "Stores ratings for a specific user, written by other users.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user being rated."
+            },
+            {
+              "name": "ratingId",
+              "description": "The unique identifier of the rating."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/profileNotes/{noteId}",
+        "definition": {
+          "entityName": "ProfileNote",
+          "schema": {
+            "$ref": "#/backend/entities/ProfileNote"
+          },
+          "description": "Stores notes left on a user's profile.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The ID of the user whose profile is being noted."
+            },
+            {
+              "name": "noteId",
+              "description": "The unique ID of the note."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/squares/{squareId}",
+        "definition": {
+          "entityName": "Square",
+          "schema": {
+            "$ref": "#/backend/entities/Square"
+          },
+          "description": "Stores Square information. `creatorId` field is used for determining the creator of the Square and allow creator to have extended privileges on a given Square.",
+          "params": [
+            {
+              "name": "squareId",
+              "description": "The unique identifier of the Square."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/squares/{squareId}/playlist/{playlistItemId}",
+        "definition": {
+          "entityName": "PlaylistItem",
+          "schema": {
+            "$ref": "#/backend/entities/PlaylistItem"
+          },
+          "description": "Stores the DJ's playlist for a specific square.",
+          "params": [
+            {
+              "name": "squareId"
+            },
+            {
+              "name": "playlistItemId"
+            }
+          ]
+        }
+      },
+      {
+        "path": "/squares/{squareId}/messages/{messageId}",
+        "definition": {
+          "entityName": "Message",
+          "schema": {
+            "$ref": "#/backend/entities/Message"
+          },
+          "description": "Stores messages for a specific Square. The `squareId` parameter ensures messages are scoped to their respective Squares.",
+          "params": [
+            {
+              "name": "squareId",
+              "description": "The unique identifier of the Square."
+            },
+            {
+              "name": "messageId",
+              "description": "The unique identifier of the message."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/squares/{squareId}/songRequests/{songRequestId}",
+        "definition": {
+          "entityName": "SongRequest",
+          "schema": {
+            "$ref": "#/backend/entities/SongRequest"
+          },
+          "description": "Stores song requests for a specific Square.",
+          "params": [
+            {
+              "name": "squareId",
+              "description": "The unique identifier of the Square."
+            },
+            {
+              "name": "songRequestId",
+              "description": "The unique identifier of the song request."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/userSquares/{userSquareId}",
+        "definition": {
+          "entityName": "UserSquare",
+          "schema": {
+            "$ref": "#/backend/entities/UserSquare"
+          },
+          "description": "Stores the relationship between users and Squares.",
+          "params": [
+            {
+              "name": "userSquareId",
+              "description": "The unique identifier of the UserSquare relationship."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/friendRequests/{requestId}",
+        "definition": {
+          "entityName": "FriendRequest",
+          "schema": {
+            "$ref": "#/backend/entities/FriendRequest"
+          },
+          "description": "Stores friend requests between users.",
+          "params": [
+            {
+              "name": "requestId",
+              "description": "The unique identifier of the friend request."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/moderationActions/{actionId}",
+        "definition": {
+          "entityName": "ModerationAction",
+          "schema": {
+            "$ref": "#/backend/entities/ModerationAction"
+          },
+          "description": "Stores moderation actions taken by staff.",
+          "params": [
+            {
+              "name": "actionId",
+              "description": "The unique identifier of the moderation action."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/privateMessages/{messageId}",
+        "definition": {
+          "entityName": "PrivateMessage",
+          "schema": {
+            "$ref": "#/backend/entities/PrivateMessage"
+          },
+          "description": "Stores private messages between users.",
+          "params": [
+            {
+              "name": "messageId",
+              "description": "The unique identifier of the private message."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/staffPermissions/{permissionId}",
+        "definition": {
+          "entityName": "StaffPermissions",
+          "schema": {
+            "$ref": "#/backend/entities/StaffPermissions"
+          },
+          "description": "Stores staff role permission configurations.",
+          "params": [
+            {
+              "name": "permissionId",
+              "description": "The unique identifier of the permission config (e.g., 'config')."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/featurePermissions/{permissionId}",
+        "definition": {
+          "entityName": "FeaturePermissions",
+          "schema": {
+            "$ref": "#/backend/entities/FeaturePermissions"
+          },
+          "description": "Stores feature access configurations based on user rank.",
+          "params": [
+            {
+              "name": "permissionId",
+              "description": "The unique identifier of the permission config (e.g., 'config')."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/announcements/{announcementId}",
+        "definition": {
+          "entityName": "Announcement",
+          "schema": {
+            "$ref": "#/backend/entities/Announcement"
+          },
+          "description": "Stores global announcements.",
+          "params": [
+            {
+              "name": "announcementId",
+              "description": "The unique identifier of the announcement."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/app_settings/{settingsId}",
+        "definition": {
+          "entityName": "ThemeSettings",
+          "schema": {
+            "$ref": "#/backend/entities/ThemeSettings"
+          },
+          "description": "Stores global app settings. Use 'theme' as the document ID for theme settings.",
+          "params": [
+            {
+              "name": "settingsId",
+              "description": "The ID of the settings document (e.g., 'theme')."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/posts/{postId}",
+        "definition": {
+          "entityName": "Post",
+          "schema": {
+            "$ref": "#/backend/entities/Post"
+          },
+          "description": "Stores user-generated posts for the feed wall.",
+          "params": [
+            {
+              "name": "postId",
+              "description": "The unique identifier of the post."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/posts/{postId}/comments/{commentId}",
+        "definition": {
+          "entityName": "Comment",
+          "schema": {
+            "$ref": "#/backend/entities/Comment"
+          },
+          "description": "Stores comments for a specific post.",
+          "params": [
+            {
+              "name": "postId",
+              "description": "The unique identifier of the post."
+            },
+            {
+              "name": "commentId",
+              "description": "The unique identifier of the comment."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/username_history/{historyId}",
+        "definition": {
+          "entityName": "UsernameHistory",
+          "schema": {
+            "$ref": "#/backend/entities/UsernameHistory"
+          },
+          "description": "Stores a log of past usernames for users."
+        }
+      },
+      {
+        "path": "/rate_limits/{staffId}",
+        "definition": {
+          "entityName": "RateLimit",
+          "schema": {
+            "$ref": "#/backend/entities/RateLimit"
+          },
+          "description": "Rate limiting counters for staff actions."
+        }
+      },
+      {
+        "path": "/audit_logs/{logId}",
+        "definition": {
+          "entityName": "AuditLog",
+          "schema": {
+            "$ref": "#/backend/entities/AuditLog"
+          },
+          "description": "Audit trail for moderation actions."
+        }
+      }
+    ],
+    "reasoning": "The Firestore data structure is designed to support a Azurewave application with user profiles, public Squares, and real-time messaging. The structure prioritizes authorization independence and efficient querying. User profiles are stored under `/users/{userId}`. Squares are stored in the `/squares` collection. User-Square relationships are managed in `/userSquares`.\n\n**Authorization Independence:**\nAuthorization Independence is maintained by using path-based ownership for user profiles and leveraging the `creatorId` inside of the Square to allow the Square creator to perform admin type activities on a given Square. The `UserSquare` collection contains the relationship between the User and Square.\n\n**QAPs Support:**\n*   Secure `list` operations for Squares are supported as all documents in the `/squares` collection share the same security requirements (public Squares).\n\nIn summary, this structure supports the core features of the application while adhering to the principles of Authorization Independence, Clarity of Intent, DBAC, QAPs, and Invariants."
+  }
+}
+

@@ -1,0 +1,12 @@
+{
+	"name": "Venetian_Red",
+	"author": "8lackMask",
+	"background_header": "linear-gradient(#2f1010, #391818)",
+	"text_header": "#fff",
+	"background_chat": "#391818",
+	"background_image": "css/themes/Venetian_Red/images/background.png",
+	"background_log": "rgba(106, 38, 38, 0.8)",
+	"text_color": "#fff",
+	"theme_color": "#df4444",
+	"default_color": "#ce7272"
+}

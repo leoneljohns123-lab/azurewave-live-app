@@ -1,0 +1,231 @@
+/**========================================================================
+* ?                                ABOUT
+* @author         :  8lackMask
+* @email          :  blackcodymask@gmail.com
+* @store          :  https://blackmask.codychat.store/
+* @product        :  Obsidian (theme)
+* @version        :  1.0
+*========================================================================**/
+
+/* general colors */
+a {color:orange;}
+body {background:#090c15; color:#dae0fd;}
+button { background:transparent; color:#fff; }
+input, textarea, .post_input_container { background:#0b0d18; border:1px solid #181d32 !important; color:#dae0fd; }
+.setdef { color:#dae0fd; }
+
+/* cookie box */
+.cookie_wrap { background:#1f2643; color:#fff; }
+
+/* item with background no effect */
+.bback { background:rgb(255,255,255,0.05); }
+
+/* item with background no effect with border */
+.bbackb { background:rgb(255,255,255,0.05); border:1px solid rgb(255,255,255,0.08); }
+
+/* item with no background and hover effect */
+.bhover:hover { background:rgb(255,255,255,0.05); }
+
+/* item with background and hover effect */
+.bbackhover { background:rgb(255,255,255,0.05); }
+.bbackhover:hover { background:rgb(255,255,255,0.03); }
+
+/* item width background and hover effect with a border */
+.bbackhoverb { background:rgb(255,255,255,0.05); }
+.bbackhoverb:hover { background:rgb(255,255,255,0.3); border:1px solid rgb(255,255,255,0.05); }
+
+/* item with no background with line separator and hover effect */
+.blisting { border-bottom: 1px solid rgb(255,255,255,0.03); }
+.blisting:hover { background: rgb(255,255,255,0.04); }
+
+/* item with no background with line separator */
+.blist { border-bottom: 1px solid rgb(255,255,255,0.03); }
+
+/* private panel top */
+.back_ptop { background:#16192c; color:#fff; }
+
+/* page menu & page sub menu */
+.bpmenu:hover { background: rgb(255,255,255,0.05); }
+.bsub { background:rgb(0,0,0,0.1); }
+.bsub:hover { background:rgb(255,255,255,0.03); }
+
+/* sub menus for card, logs, wall, news */
+.bmenu, .submenu { border-bottom:1px solid rgb(255,255,255,0.03); }
+.bmenu:hover, .submenu:hover { background:rgb(255,255,255,0.03); }
+
+/* box shadow */
+.bshadow, .page_element, .float_menu, .btnshadow, .pboxed { box-shadow:0 1px 3px rgb(0,0,0,0.4); }
+
+/* main item selected for panel and box */
+.bselected { background:rgb(255,255,255,0.08); }
+
+/* reg menu selected item */
+.rselected { background:rgb(255,255,255,0.08); }
+
+/* page selected */
+.pselected { color:#4a63cf; }
+
+/* current item selected selected */
+.cselected, .liked { background:rgb(255,255,255,0.05); }
+
+/* paginate item selected */
+.pag_btn { background:rgb(255,255,255,0.05); }
+.pagselected, .pag_btn:hover { background:rgb(255,255,255,0.1); }
+
+/* count and gold tag */
+.gtag { background:#233152; border:1px solid rgb(255,255,255,0.05); }
+
+/* border color for separator and items border */
+.bborder { border-bottom:1px solid rgb(255,255,255,0.05); }
+.tborder { border-top:1px solid rgb(255,255,255,0.05); }
+.lborder, .ppanel { border-left:1px solid rgb(255,255,255,0.05); }
+.rborder { border-right:1px solid rgb(255,255,255,0.05); }
+.fborder { border:1px solid rgb(255,255,255,0.05); }
+
+/* float top color */
+.float_top { border-bottom:1px solid rgb(255,255,255,0.05); }
+.float_ctop { border-bottom:1px solid rgb(255,255,255,0.05); }
+
+/* headers, footer and top modal colors */
+.bhead { background:linear-gradient(#0d101e ,#121425); color:#fff; }
+.bsidebar { background:linear-gradient(to right, #0d101e ,#121425); color:#fff; }
+.modal_top { background:#0d101e; color:#fff; }
+.pro_top { background:#0d101e; color:#fff; }
+.bfoot { background:linear-gradient(to top,#0d101e ,#121425); color:#fff; }
+.foot { background:#0d101e; color:#fff; }
+
+/* background major element panel, page menu, float menu, modal, chat boxes */
+.backglob { background:#0b0d18; }
+.back_chat { background:#0b0d18; }
+.back_priv { background:#0b0d18; }
+.back_panel { background:#0e111d; }
+.back_menu { background:#15182a; }
+.back_pmenu { background:#0b0d18; }
+.back_box { background:#121525; }
+.back_input { background:#0e111d; border-top:1px solid rgb(255,255,255,0.05); }
+.back_modal { background:#0e111d; }
+.page_element { background:#0e111d; }
+.back_quote { background:#0e111d; }
+
+/* login custom background */
+#intro_top{background:url('./images/background_login.jpg');background-repeat:no-repeat;background-attachment:fixed;background-position:center center;background-size:cover;}
+
+/* main theme color */
+.theme_color { color:#4a63cf; }
+.default_color { color:#3b4a88; }
+.error  { color:#b20e0e; }
+.success { color:#1bb20e; }
+.warn { color:orange; }
+
+/* button colors */
+.theme_btn, .back_theme { background:linear-gradient(#444979,#23294f); color:#fff; }
+.default_btn, .back_default { background:#1f2643; color:#fff; }
+.defaultd_btn { background:#252e52; color:#fff; }
+.ok_btn,.onswitch { background:#1bb20e; color:#fff; }
+.warn_btn { background:orange; color:#fff; }
+.delete_btn { background:#cc0000; color:#fff; }
+.send_btn { color:#f6f6f6; }
+
+/* default username color */
+.user { color:#fff; }
+
+/* chat system messsage text color */
+.chat_system { color:#979fc1; }
+
+/* opacity for offline users in list */
+.offline { opacity:0.5; }
+
+/* menu icon */
+.menui { color:#4a63cf; }
+.subi { color:#4a63cf; }
+
+/* wall reply background */
+.reply_item { background:#0b0d18; }
+
+/* main post item option wall and news */
+.main_post_item { color:#6c7187; }
+
+/* input option background colors */
+.input_item { color:#6c7187; }
+
+/* private log bubble colors */
+.target_private, .hunt_quote {color:#fff; background:#252e52;}
+.hunter_private, .targ_quote {color:#fff; background:#181d32;}
+
+/* quote in chat background color */
+.cquote { background:rgba(24, 29, 50, 0.5); color:#fff; }
+
+/* tab menu */
+.tab_menu { box-shadow:0 1px 3px rgb(0,0,0,0.4); }
+.tab_selected { background:rgb(255,255,255,0.05); }
+
+/* modal menu */
+.modal_mback { background:rgb(255,255,255,0.04); }
+.modal_mborder { border-bottom: 1px solid rgb(255,255,255,0.08); }
+.modal_selected { background:rgb(255,255,255,0.08); }
+
+/* back transparency background for modal box */
+.modal_back { background-color:rgba(0,0,0,0.6); }
+
+/* chat logs */
+.mbubble { background:rgba(37, 46, 82, 0.5); color:#fff; }
+.topic_log { background:rgb(18,20,37,0.588); color:#969bca; }
+.sys_log{ }
+
+/* upload progress */
+.bprogress { background:#1bb20e; color:#fff; }
+
+/* notification colors */
+.bnotify { background:#b20e0e; color:#fff; }
+.foot_notify, .head_notify { border:1px solid #fff; }
+
+/* date colors */
+.sub_date  { color:#848aa5; }
+.sub_chat, .sub_priv { color:#6c7187; }
+
+/* secondary text color */
+.sub_text, .list_mood  { color:#848aa5; }
+
+/* profile likes */
+.plikes { background-color:rgba(100,100,100,0.2); color:#fff; }
+
+/* spinner color */
+.bspin { color:rgb(255,255,255,0.3); }
+
+/* special chat item */
+.my_notice { color:#fff; background:#334ab1; }
+.system_text { background:rgb(255,255,255,0.05); color:#848aa5; }
+
+/* outside pages background */
+.back_page { background:#233152; color:#fff; }
+
+/* video background color */
+.post_video { background:rgb(0,0,0,1); }
+
+/* slider */
+.boom_slider .ui-widget-content { background: #1f2643; }
+.boom_slider .ui-state-default { background: #4a63cf !important; }
+.boom_slider .ui-state-active { background: #4a63cf !important; }
+.boom_slider .ui-slider-range { background:#3b4a88; }
+
+/* select input color */
+.selectboxit-list, .selectboxit-btn { background-color: #0b0d18; border:1px solid #181d32; color:#dae0fd; }
+.selectboxit-list .selectboxit-focus .selectboxit-option-anchor { background-color: #1f2643; color:#dae0fd; }
+.selectboxit-default-arrow { border-top: 4px solid #3b4a88; }
+.selectboxit-btn.selectboxit-enabled:hover, .selectboxit-btn.selectboxit-enabled:focus, .selectboxit-btn.selectboxit-enabled:active { background:#0b0d18; color:#dae0fd; }
+.selectboxit-options { background:#181d32; color:#dae0fd; }
+.selectboxit-list .selectboxit-option-anchor { color:#626780; }
+
+/* emoticon menu and panel bar nice tab style */
+.panel_bar{background:#0d101b}
+.emo_head{padding-left:10px}
+.panel_option,.emo_menu{background:none;position:relative;z-index:1}
+.emo_menu.bselected::before,.panel_option.bselected::before{content:'';position:absolute;top:5px;bottom:0;left:0;right:0;transform:translateY(1px);z-index:-1;background:#0e111d;border:1px solid rgb(255,255,255,.05);border-bottom:none;border-top-left-radius:5px;border-top-right-radius:5px}
+.emo_menu.bselected::before{background:#121525}
+
+/* misc colors */
+.saved_error{background-color:rgb(188,0,0,.75);color:#fff;}
+.saved_ok{background-color:rgb(0,139,0,.75);color:#fff;}
+
+/* custom */
+.modal_in { border:1px solid rgb(255,255,255,0.01); } 

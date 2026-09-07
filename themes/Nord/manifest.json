@@ -1,0 +1,12 @@
+{
+	"name": "Nord",
+	"author": "8lackMask",
+	"background_header": "linear-gradient(#272833, #30343e)",
+	"text_header": "#fff",
+	"background_chat": "transparent",
+	"background_image": "css/themes/Nord/images/background.png",
+	"background_log": "rgba(66, 71, 85, 0.8)",
+	"text_color": "#fff",
+	"theme_color": "#6e89c4",
+	"default_color": "#585e6f"
+}

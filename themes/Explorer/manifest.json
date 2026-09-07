@@ -1,0 +1,12 @@
+{
+	"name": "Explorer",
+	"author": "8lackMask",
+	"background_header": "linear-gradient(#210002, #752622)",
+	"text_header": "#ffb196",
+	"background_chat": "#752622",
+	"background_image": "css/themes/Explorer/images/background.png",
+	"background_log": "rgba(33, 0, 2, 0.5)",
+	"text_color": "#ffbba4",
+	"theme_color": "#ff5b24",
+	"default_color": "#ff7e51"
+}

@@ -1,0 +1,12 @@
+{
+	"name": "Obsidian",
+	"author": "8lackMask",
+	"background_header": "linear-gradient(#0d101e, #121425)",
+	"text_header": "#fff",
+	"background_chat": "#0b0d18",
+	"background_image": "css/themes/Obsidian/images/background.svg",
+	"background_log": "rgba(37, 46, 82, 0.5)",
+	"text_color": "#dae0fd",
+	"theme_color": "#4a63cf",
+	"default_color": "#3b4a88"
+}

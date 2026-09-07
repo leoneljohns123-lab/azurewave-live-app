@@ -1,0 +1,12 @@
+{
+	"name": "Scent",
+	"author": "8lackMask",
+	"background_header": "linear-gradient(#591629, #ffe9ef)",
+	"text_header": "#fff",
+	"background_chat": "#ffe9ef",
+	"background_image": "css/themes/Scent/images/flower.png",
+	"background_log": "rgba(244, 194, 208, 0.6)",
+	"text_color": "#6a3343",
+	"theme_color": "#d94871",
+	"default_color": "#591629"
+}

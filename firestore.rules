@@ -1,0 +1,181 @@
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+  
+    // Helper Functions
+    function isAuth() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return request.auth.uid == userId;
+    }
+
+    function getUserData(userId) {
+        return get(/databases/$(database)/documents/users/$(userId)).data;
+    }
+
+    function getUserRole() {
+      // Handle cases where user doc might not exist yet
+      if (exists(/databases/$(database)/documents/users/$(request.auth.uid))) {
+        return getUserData(request.auth.uid).role;
+      }
+      return 'Guest'; // Default to a non-privileged role
+    }
+
+    function hasPermission(permission) {
+        let userRole = getUserRole();
+        if (userRole == 'Owner') {
+            return true;
+        }
+        
+        let permissionsData = get(/databases/$(database)/documents/staffPermissions/config).data;
+        // Check if the role exists in the permissions config
+        if (userRole in permissionsData.roles) {
+            // 'in' operator for lists checks for presence.
+            return permission in permissionsData.roles[userRole];
+        }
+        
+        return false;
+    }
+
+    // Default deny all reads and writes
+    match /{document=**} {
+      allow read, write: if false;
+    }
+    
+    // USERS collection
+    match /users/{userId} {
+      allow get: if isAuth();
+      allow list: if isAuth(); // Allow listing users for mentions, etc.
+      allow create: if request.auth.uid == userId;
+      allow update: if isOwner(userId) || hasPermission('manageUsers');
+      
+      // Subcollections
+      match /notifications/{notificationId} {
+        allow read, write, delete: if isOwner(userId);
+      }
+      match /ratings/{ratingId} {
+        allow read: if true;
+        allow create: if isAuth() && request.auth.uid != userId;
+        allow delete: if isAuth() && (get(path(ratingId)).data.raterId == request.auth.uid || hasPermission('manageUsers'));
+      }
+      match /profileNotes/{noteId} {
+          allow read: if true;
+          allow create: if isAuth() && request.auth.uid != userId;
+          allow delete: if isAuth() && (get(path(noteId)).data.authorId == request.auth.uid || hasPermission('manageUsers'));
+      }
+      // Secure private user data subcollection
+      match /private/{docId} {
+        allow read, write: if false; // Only accessible via Cloud Functions with admin privileges
+      }
+    }
+    
+    // SQUARES collection
+    match /squares/{squareId} {
+      allow read: if true;
+      allow create: if isAuth() && hasPermission('createSquare');
+      allow update: if isAuth() && (get(path(squareId)).data.creatorId == request.auth.uid || hasPermission('deleteAnySquare'));
+      allow delete: if isAuth() && (get(path(squareId)).data.creatorId == request.auth.uid || hasPermission('deleteAnySquare'));
+
+      match /messages {
+        allow list: if true;
+      }
+      match /messages/{messageId} {
+        allow get: if true;
+        allow create: if isAuth();
+        allow delete: if isAuth() && (get(path(messageId)).data.senderId == request.auth.uid || hasPermission('deleteAnySquare'));
+      }
+
+      match /playlist {
+        allow list: if true;
+      }
+      match /playlist/{playlistItemId} {
+          allow get: if true;
+          allow write: if isAuth(); // Simplified for now
+       }
+
+       match /songRequests {
+         allow list: if isAuth();
+       }
+       match /songRequests/{songRequestId} {
+          allow get: if true;
+          allow write: if isAuth(); // Simplified for now
+       }
+    }
+
+    // REPORTS collection
+    match /reports/{reportId} {
+      allow list, read: if hasPermission('viewReports');
+      allow create: if isAuth();
+      allow update: if hasPermission('viewReports'); // For changing status
+    }
+    
+    match /userSquares/{userSquareId} {
+        allow read: if true;
+        allow create, delete: if isAuth() && request.resource.data.userId == request.auth.uid;
+        allow update: if isAuth() && resource.data.userId == request.auth.uid;
+    }
+    
+    match /friendRequests/{requestId} {
+        allow read, update: if isAuth() && (request.auth.uid == resource.data.senderId || request.auth.uid == resource.data.receiverId);
+        allow create: if isAuth() && request.auth.uid == request.resource.data.senderId;
+        allow delete: if isAuth() && (request.auth.uid == resource.data.senderId || request.auth.uid == resource.data.receiverId);
+    }
+    
+    match /privateMessages/{messageId} {
+      allow read, write, delete: if isAuth() && request.auth.uid in resource.data.participants;
+    }
+    
+    match /staffPermissions/config {
+      allow read: if true;
+      allow write: if hasPermission('managePermissions');
+    }
+    
+     match /featurePermissions/config {
+      allow read: if true;
+      allow write: if hasPermission('managePermissions');
+    }
+    
+    match /announcements/{announcementId} {
+      allow read: if true;
+      allow write: if hasPermission('sendGlobalAnnouncements');
+    }
+    
+    match /app_settings/{settingsId} {
+        allow read: if true;
+        allow write: if hasPermission('manageTheme') || hasPermission('manageRegistration');
+    }
+
+    match /posts/{postId} {
+      allow read: if true;
+      allow create: if isAuth() && hasPermission('createPost');
+      allow update, delete: if isAuth() && (get(path(postId)).data.authorId == request.auth.uid || hasPermission('managePosts'));
+
+      match /comments/{commentId} {
+        allow read: if true;
+        allow create: if isAuth() && hasPermission('commentOnPost');
+        allow update, delete: if isAuth() && (get(path(commentId)).data.authorId == request.auth.uid || hasPermission('managePosts'));
+      }
+    }
+
+    match /username_history/{historyId} {
+      allow read: if hasPermission('viewWhois');
+      allow create: if isAuth(); // Functions will be authenticated
+      allow update, delete: if false;
+    }
+
+    match /rate_limits/{staffId} {
+      allow read, write: if request.auth.uid == staffId && hasPermission('viewWhois');
+    }
+
+    match /audit_logs/{logId} {
+      allow create: if isAuth(); // Allow create for any authenticated user (specifically for cloud functions)
+      allow read: if hasPermission('viewWhois');
+      allow update, delete: if false; // Disallow any client-side modifications
+    }
+  }
+}
+

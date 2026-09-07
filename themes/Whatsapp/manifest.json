@@ -1,0 +1,12 @@
+{
+	"name": "Whatsapp",
+	"author": "8lackMask",
+	"background_header": "linear-gradient(#202c33, #0b141a)",
+	"text_header": "#fff",
+	"background_chat": "#0b141a",
+	"background_image": "css/themes/Whatsapp/images/chat_background.png",
+	"background_log": "#005C4B",
+	"text_color": "#e9edef",
+	"theme_color": "#00a884",
+	"default_color": "#aebac1"
+}

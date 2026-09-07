@@ -1,0 +1,12 @@
+{
+	"name": "Mauve_Purple",
+	"author": "8lackMask",
+	"background_header": "linear-gradient(#120f37, #2a2660)",
+	"text_header": "#fff",
+	"background_chat": "#2a2660",
+	"background_image": "css/themes/Mauve_Purple/images/background.png",
+	"background_log": "#393386",
+	"text_color": "#fff",
+	"theme_color": "#7b76c8",
+	"default_color": "#8b87d0"
+}

@@ -1,0 +1,12 @@
+{
+	"name": "Catween",
+	"author": "8lackMask",
+	"background_header": "#260d01",
+	"text_header": "#fff",
+	"background_chat": "#000",
+	"background_image": "css/themes/Catween/images/background.jpg",
+	"background_log": "rgb(83, 51, 32, 0.6)",
+	"text_color": "#fff",
+	"theme_color": "#e24e03",
+	"default_color": "#4a3a29"
+}

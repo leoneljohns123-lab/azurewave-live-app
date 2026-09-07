@@ -1,0 +1,12 @@
+{
+	"name": "Jungle_Green",
+	"author": "8lackMask",
+	"background_header": "linear-gradient(#0c2d22, #18392e)",
+	"text_header": "#fff",
+	"background_chat": "#18392e",
+	"background_image": "css/themes/Jungle_Green/images/background.png",
+	"background_log": "rgba(36, 101, 80, 0.7)",
+	"text_color": "#fff",
+	"theme_color": "#33dda6",
+	"default_color": "#70ccae"
+}

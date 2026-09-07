@@ -1,0 +1,12 @@
+{
+	"name": "Red_Leaves",
+	"author": "8lackMask",
+	"background_header": "linear-gradient(rgb(34,16,16,0.82), #111)",
+	"text_header": "#fff",
+	"background_chat": "transparent",
+	"background_image": "css/themes/Red_Leaves/images/background.jpg",
+	"background_log": "rgba(98, 53, 53, 0.5)",
+	"text_color": "#fff",
+	"theme_color": "#bb5f5f",
+	"default_color": "#884747"
+}

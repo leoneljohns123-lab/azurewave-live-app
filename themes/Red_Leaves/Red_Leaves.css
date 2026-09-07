@@ -1,0 +1,225 @@
+/* general colors */
+a {color:orange;}
+body {background:#141414; color:#fff;}
+button { background:transparent; color:#fff; }
+input,textarea,.post_input_container{background:rgba(51,19,19,.612);border:1px solid rgb(255,147,147,.188)!important;color:#fbc7c7;box-shadow:inset 0 0 6px rgba(0,0,0,.451)}
+.setdef { color:#fff; }
+
+/* cookie box */
+.cookie_wrap { background:#663838; color:#fff; }
+
+/* item with background no effect */
+.bback { background:rgba(177, 69, 69, 0.158); }
+
+/* item with background no effect with border */
+.bbackb { background:rgba(177, 69, 69, 0.158); border:1px solid rgba(155, 66, 66, 0.30); }
+
+/* item with no background and hover effect */
+.bhover:hover { background:rgba(177, 69, 69, 0.158); }
+
+/* item with background and hover effect */
+.bbackhover { background:rgba(177, 69, 69, 0.158); }
+.bbackhover:hover { background:rgba(255, 147, 147, 0.11); }
+
+/* item width background and hover effect with a border */
+.bbackhoverb { background:rgba(177, 69, 69, 0.158); }
+.bbackhoverb:hover { background:rgb(255,255,255,0.3); border:1px solid rgb(255,147,147,0.188); }
+
+/* item with no background with line separator and hover effect */
+.blisting { border-bottom: 1px solid rgba(255, 147, 147, 0.11); }
+.blisting:hover { background: rgba(177, 69, 69, 0.158); }
+
+/* item with no background with line separator */
+.blist { border-bottom: 1px solid rgba(255, 147, 147, 0.11); }
+
+/* private panel top */
+.back_ptop { background:rgb(34,16,16,0.82); color:#fff; }
+
+/* page menu & page sub menu */
+.bpmenu:hover { background: rgba(177, 69, 69, 0.158); }
+.bsub { background:rgb(0,0,0,0.1); }
+.bsub:hover { background:rgba(255, 147, 147, 0.11); }
+
+/* sub menus for card, logs, wall, news */
+.bmenu, .submenu { border-bottom:1px solid rgba(255, 147, 147, 0.11); }
+.bmenu:hover, .submenu:hover { background:rgba(255, 147, 147, 0.11); }
+
+/* box shadow */
+.bshadow, .page_element, .float_menu, .btnshadow, .pboxed { box-shadow:0 1px 3px rgb(0,0,0,0.4); }
+
+/* main item selected for panel and box */
+.bselected { background:rgba(155, 66, 66, 0.30); }
+
+/* reg menu selected item */
+.rselected { background:rgba(155, 66, 66, 0.30); }
+
+/* page selected */
+.pselected { color:#bb5f5f; }
+
+/* current item selected selected */
+.cselected, .liked { background:rgba(177, 69, 69, 0.158); }
+
+/* paginate item selected */
+.pag_btn { background:rgba(177, 69, 69, 0.158); }
+.pagselected, .pag_btn:hover { background:rgb(255,255,255,0.1); }
+
+/* count and gold tag */
+.gtag { background:#111; border:1px solid rgb(255,147,147,0.188); }
+
+/* border color for separator and items border */
+.bborder { border-bottom:1px solid rgb(255,147,147,0.188); }
+.tborder { border-top:1px solid rgb(255,147,147,0.188); }
+.lborder, .ppanel { border-left:1px solid rgb(255,147,147,0.188); }
+.rborder { border-right:1px solid rgb(255,147,147,0.188); }
+.fborder { border:1px solid rgb(255,147,147,0.188); }
+
+/* float top color */
+.float_top { border-bottom:1px solid rgb(255,147,147,0.188); }
+.float_ctop { border-bottom:1px solid rgb(255,147,147,0.188); }
+
+/* headers, footer and top modal colors */
+.bhead { background:rgb(34,16,16,0.82); color:#fff; border-bottom: 1px solid rgb(255,147,147,0.188);}
+.bsidebar { background:rgb(34,16,16,0.9); color:#fff; border-bottom: 1px solid rgb(255,147,147,0.188);}
+.modal_top { background:rgb(34,16,16,0.82); color:#fff; }
+.pro_top { background:rgb(34,16,16,0.82); color:#fff; }
+.bfoot { background:rgb(34,16,16,0.82); color:#fff; border-top: 1px solid rgb(255,147,147,0.188);}
+.foot { background:rgb(34,16,16,0.82); color:#fff; border-top: 1px solid rgb(255,147,147,0.188);}
+
+/* background major element panel, page menu, float menu, modal, chat boxes */
+.backglob { background:transparent; }
+.back_chat { background-color:transparent; }
+body::before{content:'';position:fixed;z-index:-1;top:0;left:0;width:100%;height:100%;background:url('./images/background.jpg');background-repeat:no-repeat;background-position:center center;background-size:cover;opacity:.4}
+.back_priv { background:rgb(55,20,20,0.769); }
+.back_panel { background:rgb(55,20,20,0.769); }
+.back_menu { background:rgba(64, 26, 26, 0.77); }
+.back_pmenu { background:rgb(55,20,20,0.769); border-right: 1px solid rgb(255,147,147,0.188);}
+.back_box { background:rgba(55, 20, 20, 0.77); }
+.back_input { background:rgb(55,20,20,0.769); border-top:1px solid rgb(255,147,147,0.188); }
+.back_modal { background:rgb(55,20,20,0.769); }
+.page_element { background:rgb(55,20,20,0.769); border: 1px solid rgb(255,147,147,0.188); }
+.back_quote { background:rgb(55,20,20,0.769); }
+
+/* main theme color */
+.theme_color { color:#bb5f5f; }
+.default_color { color:#884747; }
+.error  { color:red; }
+.success { color:#698639; }
+.warn { color:orange; }
+
+/* button colors */
+.theme_btn, .back_theme { background:#bb5f5f; color:#fff; }
+.default_btn, .back_default { background:#663838; color:#fff; }
+.defaultd_btn { background:#444; color:#fff; }
+.ok_btn { background:#698639; color:#fff; }
+.warn_btn { background:orange; color:#fff; }
+.delete_btn { background:#bb3838; color:#fff; }
+.send_btn { color:#f6f6f6; }
+
+/* default username color */
+.user { color:#fff; }
+
+/* chat system messsage text color */
+.chat_system { color:#aa6a6a; }
+
+/* opacity for offline users in list */
+.offline { opacity:0.5; }
+
+/* menu icon */
+.menui { color:#bb5f5f; }
+.subi { color:#bb5f5f; }
+
+/* wall reply background */
+.reply_item{background:rgb(34,16,16,.82);border-bottom:1px solid rgb(255,147,147,.188)}
+
+/* main post item option wall and news */
+.main_post_item { color:rgb(255,255,255,0.5); }
+
+/* input option background colors */
+.input_item { color:#884747; }
+
+/* private log bubble colors */
+.target_private, .hunt_quote {color:#fff; background:#995858;}
+.hunter_private, .targ_quote {color:#fff; background:#623535;}
+
+/* quote in chat background color */
+.cquote { background:rgba(153, 88, 88, 0.5); color:#fff; }
+
+/* tab menu */
+.tab_menu{box-shadow:0 1px 3px rgb(0,0,0,.4);background:rgb(34,16,16,.82);border:1px solid rgba(255,147,147,.19);}
+.tab_selected { background:rgba(177, 69, 69, 0.158); }
+
+/* modal menu */
+.modal_mback { background:rgb(255,255,255,0.04); }
+.modal_mborder { border-bottom: 1px solid rgba(155, 66, 66, 0.30); }
+.modal_selected { background:rgba(155, 66, 66, 0.30); }
+
+/* back transparency background for modal box */
+.modal_back { background-color:rgba(0,0,0,0.6); }
+
+/* chat logs */
+.mbubble { background:rgba(98, 53, 53, 0.5); color:#fff; }
+.topic_log{background:linear-gradient(to right,rgba(130,43,43,.45),rgba(70,23,23,.45));color:rgb(232,160,160); }
+.sys_log { }
+
+/* upload progress */
+.bprogress { background:#698639; color:#fff; }
+
+/* notification colors */
+.bnotify { background:red; color:#fff; }
+.foot_notify, .head_notify { border:1px solid #fff; }
+
+/* date colors */
+.sub_date  { color:#995d5d; }
+.sub_chat, .sub_priv { color:#9f5959; }
+
+/* secondary text color */
+.sub_text, .list_mood  { color:#995d5d; }
+
+/* profile likes */
+.plikes { background-color:rgba(100,100,100,0.2); color:#fff; }
+
+/* spinner color */
+.bspin { color:rgb(255,255,255,0.3); }
+
+/* special chat item */
+.my_notice { color:#fff; background:#bb5858; }
+.system_text { background:rgba(177, 69, 69, 0.158); color:#995d5d; }
+
+/* outside pages background */
+.back_page { background:#111; color:#fff; }
+
+/* video background color */
+.post_video { background:rgb(0,0,0,1); }
+
+/* slider */
+.boom_slider .ui-widget-content { background: #663838; }
+.boom_slider .ui-state-default { background: #ccc !important; }
+.boom_slider .ui-state-active { background: #ccc !important; }
+.boom_slider .ui-slider-range { background:#884747; }
+
+/* select input color */
+.selectboxit-list, .selectboxit-btn { background-color: rgba(51, 19, 19, 0.612); border:1px solid rgb(255,147,147,0.188); color:#fff; }
+.selectboxit-list .selectboxit-focus .selectboxit-option-anchor { background-color: rgba(177, 69, 69, 0.158); color:#fff; }
+.selectboxit-default-arrow { border-top: 4px solid #884747; }
+.selectboxit-btn.selectboxit-enabled:hover, .selectboxit-btn.selectboxit-enabled:focus, .selectboxit-btn.selectboxit-enabled:active { background:rgba(51, 19, 19, 0.612); color:#fff; }
+.selectboxit-options { background:rgba(34, 16, 16, 0.89); color:#fff; }
+.selectboxit-list .selectboxit-option-anchor { color:#884747; }
+
+/* custom */
+.modal_in { border:1px solid rgb(255,255,255,0.01); } 
+.float_menu{border:1px solid rgb(255,147,147,.188)}
+.my_text{padding:2px 8px}
+.chat_avatar{width: 40px;vertical-align: middle;}
+.cavatar{width: 30px;height: 30px;}
+#intro_top{background: unset;}
+
+@media screen and (max-width: 1200px){
+    .back_panel, .back_pmenu{
+        backdrop-filter: blur(2px);
+    }
+}
+@media screen and (max-width: 768px){
+    .back_menu, .back_box, .page_element{
+        backdrop-filter: blur(2px);
+    }
+}

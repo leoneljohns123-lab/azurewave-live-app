@@ -1,0 +1,223 @@
+/* general colors */
+a {color:orange;}
+body {background:#141414; color:#fff;}
+button { background:transparent; color:#fff; }
+input, textarea, .post_input_container { background:rgba(13, 8, 5, 0.61); border:1px solid #34301f !important; color:#ffeea0; }
+.setdef { color:#fff; }
+body::before{content:'';position:fixed;z-index:-1;top:0;left:0;width:100%;height:100%;background:url('./images/background.jpg');background-repeat:no-repeat;background-position:center center;background-size:cover;box-shadow:inset 0 0 500px #000}
+
+/* cookie box */
+.cookie_wrap { background:#282518; color:#fff; }
+
+/* item with background no effect */
+.bback { background: rgba(113, 79, 59, 0.2); }
+
+/* item with background no effect with border */
+.bbackb { background: rgba(113, 79, 59, 0.2); border:1px solid rgba(113, 79, 59, 0.2); }
+
+/* item with no background and hover effect */
+.bhover:hover { background: rgba(113, 79, 59, 0.2); }
+
+/* item with background and hover effect */
+.bbackhover { background: rgba(113, 79, 59, 0.2); }
+.bbackhover:hover { background:rgba(113, 79, 59, 0.1); }
+
+/* item width background and hover effect with a border */
+.bbackhoverb { background: rgba(113, 79, 59, 0.2); }
+.bbackhoverb:hover { background:rgb(255,255,255,0.3); border:1px solid rgba(255, 238, 160, 0.11); }
+
+/* item with no background with line separator and hover effect */
+.blisting { border-bottom: 1px solid rgba(113, 79, 59, 0.1); }
+.blisting:hover { background: rgba(113, 79, 59, 0.2); }
+
+/* item with no background with line separator */
+.blist { border-bottom: 1px solid rgba(113, 79, 59, 0.1); }
+
+/* private panel top */
+.back_ptop { background:rgba(32, 20, 14, 0.85); color:#fff; }
+
+/* page menu & page sub menu */
+.bpmenu:hover { background: rgb(255,255,255,0.05); }
+.bsub { background:rgb(0,0,0,0.1); }
+.bsub:hover { background:rgba(113, 79, 59, 0.1); }
+
+/* sub menus for card, logs, wall, news */
+.bmenu, .submenu { border-bottom:1px solid rgba(113, 79, 59, 0.1); }
+.bmenu:hover, .submenu:hover { background:rgba(113, 79, 59, 0.1); }
+
+/* box shadow */
+.bshadow, .page_element, .float_menu, .btnshadow, .pboxed { box-shadow:0 1px 3px rgb(0,0,0,0.4); }
+
+/* main item selected for panel and box */
+.bselected { background:rgba(255, 214, 0, 0.05); }
+
+/* reg menu selected item */
+.rselected { background:rgba(255, 214, 0, 0.05); }
+
+/* page selected */
+.pselected { color:#d3b300; }
+
+/* current item selected selected */
+.cselected, .liked { background: rgba(113, 79, 59, 0.2); }
+
+/* paginate item selected */
+.pag_btn { background: rgba(113, 79, 59, 0.2); }
+.pagselected, .pag_btn:hover { background:rgb(255,255,255,0.1); }
+
+/* count and gold tag */
+.gtag { background:#14120c; border:1px solid rgba(255, 238, 160, 0.11); }
+
+/* border color for separator and items border */
+.bborder { border-bottom:1px solid rgba(255, 238, 160, 0.11); }
+.tborder { border-top:1px solid rgba(255, 238, 160, 0.11); }
+.lborder, .ppanel { border-left:1px solid rgba(255, 238, 160, 0.11); }
+.rborder { border-right:1px solid rgba(255, 238, 160, 0.11); }
+.fborder { border:1px solid rgba(255, 238, 160, 0.11); }
+
+/* float top color */
+.float_top { border-bottom:1px solid rgba(255, 238, 160, 0.11); }
+.float_ctop { border-bottom:1px solid rgba(255, 238, 160, 0.11); }
+
+/* headers, footer and top modal colors */
+.bhead { background:rgba(32, 20, 14, 0.85); color:#ffeea0; border-bottom: 1px solid rgba(255, 238, 160, 0.11);}
+.bsidebar { background:rgba(32, 20, 14, 0.85); color:#ffeea0; border-bottom: 1px solid rgba(255, 238, 160, 0.11);}
+.modal_top { background:#14120c; color:#fff; }
+.pro_top { background:rgba(13,8,5,.61); color:#fff; }
+.bfoot { background:rgba(32, 20, 14, 0.85); color:#ffeea0; border-top: 1px solid rgba(255, 238, 160, 0.11);}
+.foot { background:#14120c; color:#fff; }
+
+/* background major element panel, page menu, float menu, modal, chat boxes */
+.backglob { background:transparent; }
+.back_chat { background:transparent; }
+.back_priv { background:rgba(13, 8, 5, 0.61); }
+.back_panel { background:rgba(13, 8, 5, 0.61); }
+.back_menu { background:rgba(32, 20, 14, 0.85); }
+.back_pmenu { background:rgba(13, 8, 5, 0.61); }
+.back_box { background:rgba(13, 8, 5, 0.61); }
+.back_input { background:rgba(13, 8, 5, 0.61); border-top:1px solid rgba(255, 238, 160, 0.11); }
+.back_modal { background:rgba(13, 8, 5, 0.61); backdrop-filter: blur(2px);}
+.page_element { background:rgba(13, 8, 5, 0.61); }
+.back_quote { background:rgba(13, 8, 5, 0.81); }
+
+/* main theme color */
+.theme_color { color:#d3b300; }
+.default_color { color:#6a6242; }
+.error  { color:#a73232; }
+.success { color:#409728; }
+.warn { color:orange; }
+
+/* button colors */
+.theme_btn, .back_theme { background:#d3b300; color:#fff; }
+.default_btn, .back_default { background:#282518; color:#fff; }
+.defaultd_btn { background:#4d472d; color:#fff; }
+.ok_btn { background:#409728; color:#fff; }
+.warn_btn { background:orange; color:#fff; }
+.delete_btn { background:#a73232; color:#fff; }
+.send_btn, .footer_play { color:#d3b300; }
+
+/* default username color */
+.user { color:#fff; }
+
+/* chat system messsage text color */
+.chat_system { color:#b9ae7e; }
+
+/* opacity for offline users in list */
+.offline { opacity:0.5; }
+
+/* menu icon */
+.menui { color:#d3b300; }
+.subi { color:#d3b300; }
+
+/* wall reply background */
+.reply_item { background:rgba(13, 8, 5, 0.61); }
+
+/* main post item option wall and news */
+.main_post_item { color:rgb(255,255,255,0.5); }
+
+/* input option background colors */
+.input_item, .panel_option, .main_post_item { color:#ffeea0; }
+
+/* private log bubble colors */
+.target_private, .hunt_quote {color:#fff; background:#4d472d;}
+.hunter_private, .targ_quote {color:#fff; background:#271a10;}
+
+/* quote in chat background color */
+.cquote { background:rgba(39, 26, 16, 0.6); color:#fff; }
+
+/* tab menu */
+#page_full_content, .tab_menu { background:rgba(13, 8, 5, 0.61); }
+.tab_menu { box-shadow:0 1px 3px rgb(0,0,0,0.4); }
+.tab_selected { background: rgba(113, 79, 59, 0.2); }
+
+/* modal menu */
+.modal_mback { background:rgba(113, 79, 59, 0.2); }
+.modal_mborder { border-bottom: 1px solid rgba(113, 79, 59, 0.2); }
+.modal_selected { background:rgba(113, 79, 59, 0.2); }
+
+/* back transparency background for modal box */
+.modal_back { background-color:rgba(51, 33, 21, 0.69); }
+
+/* chat logs */
+.mbubble { background:rgba(77, 71, 45, 0.6); color:#fff; }
+.topic_log{background:rgba(13,8,5,.61);color:#ccbf81}
+.sys_log { }
+
+/* upload progress */
+.bprogress { background:#409728; color:#fff; }
+
+/* notification colors */
+.bnotify { background:#d3b300; color:#fff; }
+.foot_notify, .head_notify { border:1px solid #fff; }
+
+/* date colors */
+.sub_date  { color:#a89e71; }
+.sub_chat, .sub_priv { color:#6a6242; }
+
+/* secondary text color */
+.sub_text, .list_mood  { color:#a89e71; }
+
+/* profile likes */
+.plikes { background-color:rgba(100,100,100,0.2); color:#fff; }
+
+/* spinner color */
+.bspin { color:rgb(255,255,255,0.3); }
+
+/* special chat item */
+.my_notice { color:#fff; background:#dda65d; }
+.system_text { background: rgba(113, 79, 59, 0.2); color:#a89e71; }
+
+/* outside pages background */
+.back_page { background:#14120c; color:#fff; }
+
+/* video background color */
+.post_video { background:rgb(0,0,0,1); }
+
+/* slider */
+.boom_slider .ui-widget-content { background: #282518; }
+.boom_slider .ui-state-default { background: #ffeea0 !important; }
+.boom_slider .ui-state-active { background: #ffeea0 !important; }
+.boom_slider .ui-slider-range { background:#6a6242; }
+
+/* select input color */
+.selectboxit-list, .selectboxit-btn { background-color: rgba(13, 8, 5, 0.61); border:1px solid #34301f; color:#fff; }
+.selectboxit-list .selectboxit-focus .selectboxit-option-anchor { background-color: rgba(44, 28, 17, 0.61); color:#fff; }
+.selectboxit-default-arrow { border-top: 4px solid #6a6242; }
+.selectboxit-btn.selectboxit-enabled:hover, .selectboxit-btn.selectboxit-enabled:focus, .selectboxit-btn.selectboxit-enabled:active { background:rgba(13, 8, 5, 0.61); color:#fff; }
+.selectboxit-options { background:rgba(13, 8, 5, 0.887); color:#fff; }
+.selectboxit-list .selectboxit-option-anchor { color:#6a6242; }
+
+/* custom */
+.modal_in { border:1px solid rgb(255,255,255,0.01); } 
+#intro_top{ background: rgba(13, 8, 5, 0.61) !important;}
+input#content{background:rgba(32,20,14,.45);border:1px solid rgba(255,238,160,.11)!important;color:#ffeea0!important;box-shadow:inset 0 0 10px rgba(0,0,0,.188)}
+.intro_login_btn{ background: #d3b300 !important;}
+
+@media screen and (max-width: 1200px) {
+    .back_panel{ backdrop-filter: blur(2px);}
+}
+@media screen and (max-width: 1100px) {
+    .back_pmenu{ backdrop-filter: blur(2px);}
+}
+@media screen and (max-width: 768px) {
+    .back_menu, .back_box, .back_priv{ backdrop-filter: blur(2px);}
+}

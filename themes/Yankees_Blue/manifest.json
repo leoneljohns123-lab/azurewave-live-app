@@ -1,0 +1,12 @@
+{
+	"name": "Yankees_Blue",
+	"author": "8lackMask",
+	"background_header": "linear-gradient(to right, #0b1228, #182039)",
+	"text_header": "#fff",
+	"background_chat": "#182039",
+	"background_image": "css/themes/Yankees_Blue/images/background.png",
+	"background_log": "#27386f",
+	"text_color": "#fff",
+	"theme_color": "#3774d8",
+	"default_color": "#7096d5"
+}

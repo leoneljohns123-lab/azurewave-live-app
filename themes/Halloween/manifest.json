@@ -1,0 +1,12 @@
+{
+	"name": "Halloween",
+	"author": "8lackMask",
+	"background_header": "linear-gradient(#000, #672e00)",
+	"text_header": "#fff",
+	"background_chat": "#000",
+	"background_image": "css/themes/Halloween/images/background.jpg",
+	"background_log": "rgba(135, 61, 0, 0.4)",
+	"text_color": "#fff",
+	"theme_color": "#ff7607",
+	"default_color": "#da7b2f"
+}

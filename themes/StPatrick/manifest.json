@@ -1,0 +1,12 @@
+{
+	"name": "StPatrick",
+	"author": "8lackMask",
+	"background_header": "linear-gradient(#026500,#014100)",
+	"text_header": "#fff",
+	"background_chat": "#012500",
+	"background_image": "css/themes/StPatrick/images/background.jpg",
+	"background_log": "rgba(3, 116, 0, 0.5)",
+	"text_color": "#fff",
+	"theme_color": "#05b400",
+	"default_color": "#058801"
+}

@@ -1,0 +1,12 @@
+{
+	"name": "CuteOwl",
+	"author": "8lackMask",
+	"background_header": "linear-gradient(rgba(32, 20, 14, 0.85), #14120c)",
+	"text_header": "#ffeea0",
+	"background_chat": "rgba(13, 8, 5, 0.61)",
+	"background_image": "css/themes/CuteOwl/images/background.jpg",
+	"background_log": "rgba(77, 71, 45, 0.4)",
+	"text_color": "#fff",
+	"theme_color": "#d3b300",
+	"default_color": "#6a6242"
+}

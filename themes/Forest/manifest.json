@@ -1,0 +1,12 @@
+{
+	"name": "Forest",
+	"author": "8lackMask",
+	"background_header": "linear-gradient(rgba(17, 17, 17, 0.62), rgba(17, 17, 17, 0.73))",
+	"text_header": "#fff",
+	"background_chat": "transparent",
+	"background_image": "css/themes/Forest/images/background.jpg",
+	"background_log": "rgba(85, 71, 53, 0.6)",
+	"text_color": "#fff",
+	"theme_color": "#eeb266",
+	"default_color": "#88745b"
+}
